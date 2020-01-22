@@ -11,7 +11,7 @@ public class User extends AuditModel {
 
     @Id
     @GeneratedValue
-    private Long userId;
+    private Long id;
 
     private String firstName;
     private String lastName;
@@ -21,12 +21,12 @@ public class User extends AuditModel {
 
     private boolean enabled;
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

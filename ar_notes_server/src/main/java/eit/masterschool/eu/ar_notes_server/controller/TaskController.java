@@ -3,6 +3,7 @@ package eit.masterschool.eu.ar_notes_server.controller;
 import eit.masterschool.eu.ar_notes_server.model.Task;
 import eit.masterschool.eu.ar_notes_server.repository.TaskRepository;
 import eit.masterschool.eu.ar_notes_server.repository.UserRepository;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@Api(value="tasks", description="Operations for managing Tasks")
 public class TaskController {
 
     @Autowired

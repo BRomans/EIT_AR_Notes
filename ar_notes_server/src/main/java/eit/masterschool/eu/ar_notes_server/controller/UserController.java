@@ -2,6 +2,7 @@ package eit.masterschool.eu.ar_notes_server.controller;
 
 import eit.masterschool.eu.ar_notes_server.model.User;
 import eit.masterschool.eu.ar_notes_server.repository.UserRepository;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
+@Api(value="users", description="Operations for managing Users")
 public class UserController {
 
     @Autowired

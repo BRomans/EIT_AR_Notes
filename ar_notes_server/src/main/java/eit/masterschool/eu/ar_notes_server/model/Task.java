@@ -9,7 +9,7 @@ public class Task extends AuditModel {
 
     @Id
     @GeneratedValue
-    private Long taskId;
+    private Long id;
 
     private Long userId;
     private Long projectId;
@@ -19,8 +19,8 @@ public class Task extends AuditModel {
     private LocalDateTime endDate;
     private String status;
 
-    public Task(Long taskId, Long userId, Long projectId, String title, String description, LocalDateTime startDate, LocalDateTime endDate, String status) {
-        this.taskId = taskId;
+    public Task(Long id, Long userId, Long projectId, String title, String description, LocalDateTime startDate, LocalDateTime endDate, String status) {
+        this.id = id;
         this.userId = userId;
         this.projectId = projectId;
         this.title = title;
@@ -30,12 +30,12 @@ public class Task extends AuditModel {
         this.status = status;
     }
 
-    public Long getTaskId() {
-        return taskId;
+    public Long getId() {
+        return id;
     }
 
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {

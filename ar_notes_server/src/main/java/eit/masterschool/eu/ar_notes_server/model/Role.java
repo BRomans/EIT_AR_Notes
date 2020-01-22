@@ -11,18 +11,18 @@ public class Role extends AuditModel{
 
     @Id
     @GeneratedValue
-    private Long roleId;
+    private Long id;
 
     private String name;
     private String description;
     private boolean enabled;
 
-    public Long getRoleId() {
-        return roleId;
+    public Long getId() {
+        return id;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

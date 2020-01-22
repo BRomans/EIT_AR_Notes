@@ -11,18 +11,18 @@ public class Note extends AuditModel {
 
     @Id
     @GeneratedValue
-    private Long noteId;
+    private Long id;
 
     private Long userId;
     private Long taskid;
     private String text;
 
-    public Long getNoteId() {
-        return noteId;
+    public Long getId() {
+        return id;
     }
 
-    public void setNoteId(Long noteId) {
-        this.noteId = noteId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
