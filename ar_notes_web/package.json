@@ -1,0 +1,25 @@
+{
+  "name": "ar_notes_web",
+  "version": "1.0.0",
+  "description": "Web interface for AR Notes",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BRomans/EIT_AR_Notes.git"
+  },
+  "keywords": [
+    "note",
+    "task",
+    "kanban",
+    "AR"
+  ],
+  "author": "BRomans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BRomans/EIT_AR_Notes/issues"
+  },
+  "homepage": "https://github.com/BRomans/EIT_AR_Notes#readme"
+}
