@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AR Notes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+        li { margin: 5px; }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+        $( ".sortable" ).sortable({
+            revert: true
+        });
+        $( ".draggable" ).draggable({
+            connectToSortable: ".sortable",
+            revert: true
+        });
+        $( "ul, li" ).disableSelection();
+        } );
+    </script>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>AR NOTES</h1>
+        <p>Update your board and have the result instantly updated online</p>
+    </div>
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>TO DO</h3>
+                <ul class="sortable">
+                    <ul>
+                        <li class="draggable">
+                            <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="marker-task1.png" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Task 1</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="draggable">
+                            <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="marker-task1.png" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Task 2</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                        </li>
+                </ul>
+                <ul>
+                    <li class="draggable">
+                        <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="marker-task1.png" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 3</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                    </li>
+             </ul>
+            </ul>
+        </div>
+    <div class="col-sm-4">
+      <h3>IN PROGRESS</h3>
+      <ul class="sortable">
+            <ul>
+                <li class="draggable">
+                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="marker-task1.png" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Task 4</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                </li>
+     </ul>
+            <ul>
+                <li class="draggable">
+                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="marker-task1.png" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Task 9</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                </li>
+         </ul>
+                <ul>
+                    <li class="draggable">
+                        <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="marker-task1.png" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 5</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                    </li>
+                 </ul>
+                </ul>
+    </div>
+    <div class="col-sm-4">
+            <h3>COMPLETED</h3>
+            <ul class="sortable">
+                  <ul>
+                    <li class="draggable">
+                        <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="marker-task1.png" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 6</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                    </li>
+               </ul>
+                  <ul>
+                    <li class="draggable">
+                        <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="marker-task1.png" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Task 7</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                    </li>
+                   </ul>
+                      <ul>
+                        <li class="draggable">
+                            <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="marker-task1.png" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Task 8</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                        </li>
+                        </ul>
+                    </ul>
+          </div>
+        </div>
+</div>
+
+</body>
+</html>
+
