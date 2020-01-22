@@ -1,12 +1,11 @@
 package eit.masterschool.eu.ar_notes_server.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Task {
+@Table(name = "tasks")
+public class Task extends AuditModel {
 
     @Id
     @GeneratedValue
@@ -18,11 +17,9 @@ public class Task {
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
     private String status;
 
-    public Task(Long taskId, Long userId, Long projectId, String title, String description, LocalDateTime startDate, LocalDateTime endDate, LocalDateTime createdAt, LocalDateTime updatedAt, String status) {
+    public Task(Long taskId, Long userId, Long projectId, String title, String description, LocalDateTime startDate, LocalDateTime endDate, String status) {
         this.taskId = taskId;
         this.userId = userId;
         this.projectId = projectId;
@@ -30,8 +27,6 @@ public class Task {
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
         this.status = status;
     }
 
@@ -90,23 +85,6 @@ public class Task {
     public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
 
     public String getStatus() {
         return status;

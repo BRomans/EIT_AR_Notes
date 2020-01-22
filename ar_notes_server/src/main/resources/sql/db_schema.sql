@@ -1,4 +1,4 @@
-CREATE TABLE "User" (
+CREATE TABLE "users" (
 	"id" serial NOT NULL,
 	"firstName" VARCHAR(255) NOT NULL,
 	"lastName" VARCHAR(255) NOT NULL,
@@ -8,40 +8,40 @@ CREATE TABLE "User" (
 	"createdAt" TIMESTAMP NOT NULL,
 	"updatedAt" TIMESTAMP NOT NULL,
 	"enabled" BOOLEAN NOT NULL,
-	CONSTRAINT "User_pk" PRIMARY KEY ("id")
+	CONSTRAINT "user_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
 
 
 
-CREATE TABLE "UserProjectRole" (
+CREATE TABLE "user_project_role" (
 	"id" serial NOT NULL,
 	"roleId" integer NOT NULL,
 	"userId" integer NOT NULL,
 	"projectId" integer NOT NULL,
-	CONSTRAINT "UserProjectRole_pk" PRIMARY KEY ("id")
+	CONSTRAINT "user_project_role_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
 
 
 
-CREATE TABLE "Role" (
+CREATE TABLE "roles" (
 	"id" serial NOT NULL,
 	"name" VARCHAR(255) NOT NULL,
 	"description" VARCHAR(255) NOT NULL,
 	"createdAt" TIMESTAMP NOT NULL,
 	"updatedAt" TIMESTAMP NOT NULL,
 	"enabled" BOOLEAN NOT NULL,
-	CONSTRAINT "Role_pk" PRIMARY KEY ("id")
+	CONSTRAINT "roles_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
 
 
 
-CREATE TABLE "Project" (
+CREATE TABLE "projects" (
 	"id" serial NOT NULL,
 	"name" VARCHAR(255) NOT NULL,
 	"description" VARCHAR(255) NOT NULL,
@@ -50,14 +50,14 @@ CREATE TABLE "Project" (
 	"createdAt" TIMESTAMP NOT NULL,
 	"updatedAt" TIMESTAMP NOT NULL,
 	"teamLeaderId" integer NOT NULL,
-	CONSTRAINT "Project_pk" PRIMARY KEY ("id")
+	CONSTRAINT "projects_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
 
 
 
-CREATE TABLE "Task" (
+CREATE TABLE "tasks" (
 	"id" serial NOT NULL,
 	"userId" integer NOT NULL,
 	"projectId" integer NOT NULL,
@@ -68,21 +68,21 @@ CREATE TABLE "Task" (
 	"createdAt" TIMESTAMP NOT NULL,
 	"updatedAt" TIMESTAMP NOT NULL,
 	"status" VARCHAR(255) NOT NULL,
-	CONSTRAINT "Task_pk" PRIMARY KEY ("id")
+	CONSTRAINT "tasks_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
 
 
 
-CREATE TABLE "Note" (
+CREATE TABLE "notes" (
 	"id" serial NOT NULL,
 	"taskId" integer NOT NULL,
 	"userId" integer NOT NULL,
 	"text" VARCHAR(255) NOT NULL,
 	"createdAt" TIMESTAMP NOT NULL,
 	"updatedAt" TIMESTAMP NOT NULL,
-	CONSTRAINT "Note_pk" PRIMARY KEY ("id")
+	CONSTRAINT "notes_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
@@ -90,15 +90,15 @@ CREATE TABLE "Note" (
 
 
 
-ALTER TABLE "UserProjectRole" ADD CONSTRAINT "UserProjectRole_fk0" FOREIGN KEY ("roleId") REFERENCES "Role"("id");
-ALTER TABLE "UserProjectRole" ADD CONSTRAINT "UserProjectRole_fk1" FOREIGN KEY ("userId") REFERENCES "User"("id");
-ALTER TABLE "UserProjectRole" ADD CONSTRAINT "UserProjectRole_fk2" FOREIGN KEY ("projectId") REFERENCES "Project"("id");
+ALTER TABLE "user_project_role" ADD CONSTRAINT "user_project_role_fk0" FOREIGN KEY ("roleId") REFERENCES "roles"("id");
+ALTER TABLE "user_project_role" ADD CONSTRAINT "user_project_role_fk1" FOREIGN KEY ("userId") REFERENCES "users"("id");
+ALTER TABLE "user_project_role" ADD CONSTRAINT "user_project_role_fk2" FOREIGN KEY ("projectId") REFERENCES "projects"("id");
 
 
 
-ALTER TABLE "Task" ADD CONSTRAINT "Task_fk0" FOREIGN KEY ("userId") REFERENCES "User"("id");
-ALTER TABLE "Task" ADD CONSTRAINT "Task_fk1" FOREIGN KEY ("projectId") REFERENCES "Project"("id");
+ALTER TABLE "tasks" ADD CONSTRAINT "tasks_fk0" FOREIGN KEY ("userId") REFERENCES "users"("id");
+ALTER TABLE "tasks" ADD CONSTRAINT "tasks_fk1" FOREIGN KEY ("projectId") REFERENCES "projects"("id");
 
-ALTER TABLE "Note" ADD CONSTRAINT "Note_fk0" FOREIGN KEY ("taskId") REFERENCES "Task"("id");
-ALTER TABLE "Note" ADD CONSTRAINT "Note_fk1" FOREIGN KEY ("userId") REFERENCES "User"("id");
+ALTER TABLE "notes" ADD CONSTRAINT "notes_fk0" FOREIGN KEY ("taskId") REFERENCES "tasks"("id");
+ALTER TABLE "notes" ADD CONSTRAINT "notes_fk1" FOREIGN KEY ("userId") REFERENCES "users"("id");
 

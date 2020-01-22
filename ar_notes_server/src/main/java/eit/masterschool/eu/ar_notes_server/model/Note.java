@@ -3,10 +3,11 @@ package eit.masterschool.eu.ar_notes_server.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.Table;
 
 @Entity
-public class Note {
+@Table(name = "notes")
+public class Note extends AuditModel {
 
     @Id
     @GeneratedValue
@@ -15,8 +16,6 @@ public class Note {
     private Long userId;
     private Long taskid;
     private String text;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
     public Long getNoteId() {
         return noteId;
@@ -50,19 +49,4 @@ public class Note {
         this.text = text;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }

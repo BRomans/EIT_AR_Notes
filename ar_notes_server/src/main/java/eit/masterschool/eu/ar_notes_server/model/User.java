@@ -3,10 +3,11 @@ package eit.masterschool.eu.ar_notes_server.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.Table;
 
 @Entity
-public class User {
+@Table(name = "users")
+public class User extends AuditModel {
 
     @Id
     @GeneratedValue
@@ -17,8 +18,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
     private boolean enabled;
 
     public Long getUserId() {
@@ -67,22 +67,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public boolean isEnabled() {

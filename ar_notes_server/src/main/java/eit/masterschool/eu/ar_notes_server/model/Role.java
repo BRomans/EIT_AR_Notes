@@ -1,16 +1,20 @@
 package eit.masterschool.eu.ar_notes_server.model;
 
 import javax.persistence.Entity;
-import java.time.LocalDateTime;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Role {
+@Table(name = "roles")
+public class Role extends AuditModel{
 
+    @Id
+    @GeneratedValue
     private Long roleId;
+
     private String name;
     private String description;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
     private boolean enabled;
 
     public Long getRoleId() {
@@ -35,22 +39,6 @@ public class Role {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public boolean isEnabled() {
