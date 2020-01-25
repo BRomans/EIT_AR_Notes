@@ -16,6 +16,7 @@
 /AR_Notes/[Bb]uilds/
 /AR_Notes/[Ll]ogs/
 /AR_Notes/[Mm]emoryCaptures/
+/Library/CurrentLayout-default.dwlt
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
