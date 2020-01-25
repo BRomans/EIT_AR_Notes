@@ -11,8 +11,9 @@ import java.util.List;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    List<Task> findTasksByUserId(@Param("username") Long userId);
+    List<Task> findTasksByUserId(@Param("userId") Long userId);
 
     List<Task> findAll();
+
 
 }

@@ -18,18 +18,18 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/users")
+    @GetMapping("/users/all")
     public Page<User> getUsers(Pageable pageable) {
         return userRepository.findAll((pageable));
     }
 
 
-    @PostMapping("/users")
-    public User createQuestion(@Valid @RequestBody User user) {
+    @PostMapping("/users/create")
+    public User createUser(@Valid @RequestBody User user) {
         return userRepository.save(user);
     }
 
-    @PutMapping("/users/{userId}")
+    @PutMapping("/users/update/{userId}")
     public User updateUser(@PathVariable Long userId,
                                    @Valid @RequestBody User userRequest) {
         return userRepository.findById(userId)
@@ -43,7 +43,7 @@ public class UserController {
     }
 
 
-    @DeleteMapping("/users/{userId}")
+    @DeleteMapping("/users/delete/{userId}")
     public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
         return userRepository.findById(userId)
                 .map(user -> {
