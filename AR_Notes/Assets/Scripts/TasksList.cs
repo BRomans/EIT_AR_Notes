@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class TasksList : MonoBehaviour
+public class TasksList 
 {
-    List<Task> tasks;
+    public List<Task> tasks;
 }

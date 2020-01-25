@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class UsersList : MonoBehaviour
+public class UsersList
 {
-     List<User> users;
+     public List<User> users;
 }

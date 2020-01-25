@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class User : MonoBehaviour
+public class User
 {
-    private long id;
-    private string firstName;
-    private string lastName;
-    private string username;
-    private string email;
-    private string password;
+    public long id;
+    public string firstName;
+    public string lastName;
+    public string username;
+    public string email;
+    public string password;
+    public DateTime createdAt;
+    public DateTime updatedAt;
 }

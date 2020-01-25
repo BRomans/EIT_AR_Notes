@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @Api(value="users", description="Operations for managing Users")
@@ -18,11 +19,15 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/users/all")
+    @GetMapping("/users/all/paged")
     public Page<User> getUsers(Pageable pageable) {
         return userRepository.findAll((pageable));
     }
 
+    @GetMapping("/users/all")
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
 
     @PostMapping("/users/create")
     public User createUser(@Valid @RequestBody User user) {
