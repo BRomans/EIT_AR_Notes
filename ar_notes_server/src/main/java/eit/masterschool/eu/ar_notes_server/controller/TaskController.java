@@ -36,7 +36,7 @@ public class TaskController {
 
     }
 
-    @PostMapping("/tasks/rename-task{taskId}")
+    @PostMapping("/tasks/rename-task/{taskId}")
     public Task renameTask(@PathVariable Long taskId,
                            @Valid @RequestBody Task taskRequest) {
         return taskRepository.findById(taskId)
@@ -52,8 +52,8 @@ public class TaskController {
     }
 
 
-    @PostMapping("/users/{userId}/assign-task")
-    public Task assignTask(@PathVariable Long userId,
+    @PostMapping("/users/{userId}/claim-task")
+    public Task claimTask(@PathVariable Long userId,
                            @Valid @RequestBody Task task) {
         return userRepository.findById(userId)
                 .map(user -> {

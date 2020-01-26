@@ -38,7 +38,7 @@ public class AddTasktoSection : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {  
-        status.SetText("OUT ");
+        //status.SetText("OUT ");
     }
 
 }
