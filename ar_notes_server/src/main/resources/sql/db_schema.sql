@@ -59,7 +59,7 @@ CREATE TABLE "projects" (
 
 CREATE TABLE "tasks" (
 	"id" serial NOT NULL,
-	"user_id" integer NOT NULL,
+	"user_id" integer,
 	"project_id" integer NOT NULL,
 	"title" VARCHAR(255) NOT NULL,
 	"description" VARCHAR(255) NOT NULL,
@@ -68,6 +68,7 @@ CREATE TABLE "tasks" (
 	"created_at" TIMESTAMP NOT NULL,
 	"updated_at" TIMESTAMP NOT NULL,
 	"status" VARCHAR(255) NOT NULL,
+  marker bytea[] NOT NULL,
 	CONSTRAINT "tasks_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE

@@ -79,6 +79,7 @@ public class TaskController {
                     task.setStatus(taskRequest.getStatus());
                     task.setStartDate(taskRequest.getStartDate());
                     task.setEndDate(taskRequest.getEndDate());
+                    task.setMarker(taskRequest.getMarker());
                     return taskRepository.save(task);
                 }).orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + taskId));
     }
