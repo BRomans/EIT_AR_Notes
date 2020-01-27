@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 using System.Net;
 using Vuforia;
@@ -28,11 +29,7 @@ public class APIManager : MonoBehaviour
     void Update()
     {
         // uncomment to start polling the server
-        //UpdateCurrentState(); 
-
-        RegenerateTasks();    
-
-
+        //UpdateCurrentState();  
     }
 
     public void RegenerateTasks() {
@@ -41,7 +38,7 @@ public class APIManager : MonoBehaviour
         {
             //GameObject task = Instantiate(taskPrefab, new Vector3(i * 0.32f,0,0), Quaternion.identity) as GameObject;
             GameObject task = taskObjects[i];
-            task.GetComponent<MapFields>().SetFields(currentTasks[i].title, currentTasks[i].description, returnUserName(currentTasks[i].userId));
+            task.GetComponent<TaskFieldsManager>().SetFields(currentTasks[i], currentTasks[i].title, currentTasks[i].description, returnUserName(currentTasks[i].userId));
             //taskObjects[i] = task;
         }
     }
@@ -92,6 +89,30 @@ public class APIManager : MonoBehaviour
         Debug.Log("User Response" + jsonResponse);
         User[] users = JsonHelper.FromJson<User>(jsonResponse);
         return users;
+    }
+
+    public IEnumerator UpdateTask(Task task, long userId)
+    {
+
+        var uwr = new UnityWebRequest(String.Format("http://{0}:{1}/users/{2}/tasks/update/{3}",  server, port, userId, task.id), "POST");
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes( JsonUtility.ToJson(task));
+        uwr.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+        uwr.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        uwr.SetRequestHeader("Content-Type", "application/json");
+        Debug.Log("CALLED UPDATE TASK");
+        //Send the request then wait here until it returns
+        yield return uwr.SendWebRequest();
+
+        if (uwr.isNetworkError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
+            UpdateCurrentState();
+            RegenerateTasks();   
+        }
     }
 
     string fixJson(string value)
