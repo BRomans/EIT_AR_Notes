@@ -7,22 +7,33 @@ AR Notes is an augmented reality task organiser designed to improve teamwork in 
 # Software Architecture and Technology Stack
 
 The system is a distributed virtual environment composed of 3 different modules that communicate each other with REST calls, it’s based on a classic centralized client-server architecture.
-•	ARNotes
+- ARNotes
 An Android client built in Unity and powered by Vuforia AR library. It’s the main interaction point between the users and the application physical objects.
-•	ARNotes – Server
+
+- ARNotes – Server
 A Java application that provides all the core logic and functionalities of the backend.
-•	ARNotes – Web
+
+- ARNotes – Web
 A web interface for managing the digital version of the application objects.
 
 To build the system we used several technologies, languages and libraries according to our requirements:
+
 •	Unity Engine (C#) – Game engine that we use for the AR clients.
+
 •	Vuforia – AR library we used to render the augmented tasks.
+
 •	Java Spring (Java 13) – Last version of the OOP language we used to build the server.
+
 •	Maven – Package manager for Java libraries and dependencies.
+
 •	JavaScript EC6 – Last version of the web language we used to manipulate objects on the interface.
+
 •	Bootstrap – CSS/JS library for building consistent interfaces.
+
 •	PostgreSQL – Database management system.
+
 •	Swagger – API viewer we used for testing the application APIs.
+
 
 
 
