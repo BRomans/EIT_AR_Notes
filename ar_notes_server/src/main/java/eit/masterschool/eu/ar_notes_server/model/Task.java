@@ -1,7 +1,6 @@
 package eit.masterschool.eu.ar_notes_server.model;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -19,13 +18,13 @@ public class Task extends AuditModel {
     private Date startDate;
     private Date endDate;
     private String status;
-    private byte[] marker;
+    private String marker;
 
     public Task() {
 
     }
 
-    public Task(Long id, Long userId, Long projectId, String title, String description, Date startDate, Date endDate, String status, byte[] marker) {
+    public Task(Long id, Long userId, Long projectId, String title, String description, Date startDate, Date endDate, String status, String marker) {
         this.id = id;
         this.userId = userId;
         this.projectId = projectId;
@@ -101,11 +100,11 @@ public class Task extends AuditModel {
         this.status = status;
     }
 
-    public byte[] getMarker() {
+    public String getMarker() {
         return marker;
     }
 
-    public void setMarker(byte[] marker) {
+    public void setMarker(String marker) {
         this.marker = marker;
     }
 }
