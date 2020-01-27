@@ -26,6 +26,12 @@ public class TaskController {
         return taskRepository.findAll();
     }
 
+    @GetMapping("/tasks/{taskId}")
+    public Task getTasksById(@PathVariable Long taskId) {
+        return taskRepository.findTaskById(taskId);
+    }
+
+
     @DeleteMapping("/tasks/delete/{taskId}")
     public ResponseEntity<?> deleteTask(@PathVariable Long taskId) {
         return taskRepository.findById(taskId)
