@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Net;
+using Vuforia;
+using TMPro;
 
 public class APIManager : MonoBehaviour
 {
@@ -12,22 +14,60 @@ public class APIManager : MonoBehaviour
     private string port = "8080";
     public Task[] currentTasks;
     public User[]  currentUsers;
+    public GameObject[] taskObjects; 
+    public GameObject taskPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        updateCurrentState();       
+        UpdateCurrentState();   
+        RegenerateTasks();    
     }
 
     // Update is called once per frame
     void Update()
     {
-        updateCurrentState();
+        // uncomment to start polling the server
+        //UpdateCurrentState(); 
+
+        RegenerateTasks();    
+
+
     }
 
-    void updateCurrentState() {
+    public void RegenerateTasks() {
+        //taskObjects = new GameObject[currentTasks.Length];
+        for(int i=0; i< currentTasks.Length; i++)
+        {
+            //GameObject task = Instantiate(taskPrefab, new Vector3(i * 0.32f,0,0), Quaternion.identity) as GameObject;
+            GameObject task = taskObjects[i];
+            task.GetComponent<MapFields>().SetFields(currentTasks[i].title, currentTasks[i].description, returnUserName(currentTasks[i].userId));
+            //taskObjects[i] = task;
+        }
+    }
+
+    public void UpdateCurrentState() {
         currentUsers = GetUsers();
         currentTasks = GetTasks(); 
+    }
+
+    // this method isn't use anymore because inefficient
+    public void SetupTrackables() 
+    {
+        IEnumerable<TrackableBehaviour> trackableBehaviours = TrackerManager.Instance.GetStateManager().GetActiveTrackableBehaviours();
+ 
+		// Loop over all TrackableBehaviours.
+        int iterator = 0;
+		foreach (TrackableBehaviour trackableBehaviour in trackableBehaviours)
+		{
+            taskObjects[iterator].transform.parent = trackableBehaviour.transform;
+			string name = trackableBehaviour.TrackableName;
+			Debug.Log ("Trackable name: " + name);
+            taskObjects[iterator].transform.localPosition = new Vector3(0,0.2f,0);
+			taskObjects[iterator].transform.localScale = new Vector3(1f, 1f, 1f);
+			taskObjects[iterator].transform.localRotation = Quaternion.identity;
+            iterator++;
+		}
     }
 
     private Task[] GetTasks()
@@ -58,5 +98,14 @@ public class APIManager : MonoBehaviour
     {
         value = "{\"Items\":" + value + "}";
         return value;
+    }
+
+    public string returnUserName(long id) {
+        for(int i=0; i< currentUsers.Length; i++) {
+            if(id == currentUsers[i].id) {
+                return currentUsers[i].username;
+            }
+        }
+        return "(not assigned)";
     }
 }

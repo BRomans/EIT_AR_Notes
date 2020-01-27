@@ -2468,13 +2468,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3471856917639082123}
-  - component: {fileID: 3471856917639082122}
   - component: {fileID: 3471856917639082125}
   - component: {fileID: 3471856917639082124}
   - component: {fileID: 3471856917639082127}
   - component: {fileID: 3471856917639082126}
   - component: {fileID: 3471856917639082121}
   - component: {fileID: 3471856917639082120}
+  - component: {fileID: 2682932622038281099}
+  - component: {fileID: 1307520858470330228}
   m_Layer: 0
   m_Name: TaskTarget
   m_TagString: Untagged
@@ -2499,26 +2500,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3471856917639082122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3471856917639082113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mTrackableName: blue1
-  mPreserveChildSize: 0
-  mInitializedInEditor: 1
-  mDataSetPath: Vuforia/ARNotes_Prototype2.xml
-  mAspectRatio: 2
-  mImageTargetType: 0
-  mWidth: 6
-  mHeight: 12
 --- !u!114 &3471856917639082125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2614,6 +2595,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1830f8c548c7c46df898df44c62ad0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2682932622038281099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471856917639082113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f408a87268c474daf3135be8c5dd46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 3471856916566557127}
+  description: {fileID: 3471856916648619279}
+  user: {fileID: 3471856916388325315}
+--- !u!114 &1307520858470330228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471856917639082113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTrackableName: blue1
+  mPreserveChildSize: 0
+  mInitializedInEditor: 1
+  mDataSetPath: Vuforia/ARNotes_Prototype2.xml
+  mAspectRatio: 2
+  mImageTargetType: 0
+  mWidth: 6
+  mHeight: 12
 --- !u!1 &3471856917653393425
 GameObject:
   m_ObjectHideFlags: 0
