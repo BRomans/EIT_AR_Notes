@@ -4,9 +4,11 @@ $( function() {
     });
     $( ".sortable" ).droppable();
 
-    const allTaskUrl = 'http://localhost:8080/tasks/all';
+    const serverAddress = '192.168.43.225';
+
+    const allTaskUrl = 'http://'+ serverAddress + ':8080/tasks/all';
     const todoList = document.querySelector('#todo');
-    const inprogressList = document.querySelector('#inprogress');
+    const inprogressList = document.querySelector('#in_progress');
     const completedList = document.querySelector('#completed');
 
     fetch(allTaskUrl)
@@ -64,7 +66,7 @@ $( function() {
 
                 let cardUser = document.createElement('footer');
                 cardUser.className = "blockquote-footer";
-                cardUser.textContent =  "Assigned to " + data.userId;
+                cardUser.textContent =  "Not yet assigned";
 
                 listTaskItem.appendChild(section);
                     section.appendChild(cardSpace);
@@ -78,13 +80,14 @@ $( function() {
                                                 cardTimeSpace.appendChild(cardTime);
                                             cardTimeSpace.after(cardUser);
 
-                const getUserUrl = 'http://localhost:8080/users/' + task.userId;
-
-                fetch(getUserUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        cardUser.textContent =  "Assigned to " + data.firstName;
-                })
+                if (task.userId != null) {
+                    const getUserUrl = 'http://'+ serverAddress + ':8080/users/' + task.userId;
+                    fetch(getUserUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            cardUser.textContent =  "Assigned to " + data.firstName;
+                    })
+                }
                 
                 if (task.status == "todo") {
                     todoList.appendChild(listTaskItem);
@@ -104,15 +107,15 @@ $( function() {
             $( ".sortable" ).on('drop',function(event,ui){
                 const droppedItemID = ui.draggable.attr("id");
                 const dropZoneID = $(this).attr('id');
-                updateTask(droppedItemID, dropZoneID);
+                updateTask(droppedItemID, dropZoneID, serverAddress);
             });        
             $("ul, li").disableSelection();
         });
     }
 );
 
-function updateTask(droppedItemID, dropZoneID) {
-    const url = 'http://localhost:8080/tasks/' + droppedItemID;
+function updateTask(droppedItemID, dropZoneID, serverAddress) {
+    const url = 'http://'+ serverAddress + ':8080/tasks/' + droppedItemID;
     var taskData = "";
 
     fetch(url)
@@ -132,7 +135,7 @@ function updateTask(droppedItemID, dropZoneID) {
 
             taskData = JSON.stringify({ createdAt, updatedAt, id, userId, projectId, title, description, startDate, endDate, status, marker });
         
-            fetch('http://localhost:8080/tasks/update/' + droppedItemID, {
+            fetch('http://'+ serverAddress + ':8080/tasks/update/' + droppedItemID, {
                 method: 'PUT',
                 body: taskData,
                 headers : { 
