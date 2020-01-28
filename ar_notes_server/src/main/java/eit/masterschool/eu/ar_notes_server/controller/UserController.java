@@ -24,6 +24,11 @@ public class UserController {
         return userRepository.findAll((pageable));
     }
 
+    @GetMapping("/users/{userId}")
+    public User getUserById(@PathVariable Long userId) {
+        return userRepository.getUserById((userId));
+    }
+
     @GetMapping("/users/all")
     public List<User> getUsers() {
         return userRepository.findAll();
