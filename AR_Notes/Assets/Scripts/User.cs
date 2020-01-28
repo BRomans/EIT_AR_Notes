@@ -12,6 +12,6 @@ public class User
     public string username;
     public string email;
     public string password;
-    public DateTime createdAt;
-    public DateTime updatedAt;
+    public string createdAt;
+    public string updatedAt;
 }

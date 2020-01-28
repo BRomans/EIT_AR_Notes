@@ -18,9 +18,9 @@ public class TaskFieldsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-           apiManagerObj= GameObject.Find("APIManager");
-           apiManager = apiManagerObj.GetComponent<APIManager>();
-
+        apiManager= GameObject.FindObjectOfType<APIManager>();
+        //apiManager = apiManagerObj.GetComponent<APIManager>();
+        Debug.Log(apiManager);
     }
 
     // Update is called once per frame
@@ -42,17 +42,29 @@ public class TaskFieldsManager : MonoBehaviour
 
     public void UpdateTaskDescription() {
         this.task.description = this.description.text;
-        apiManager.UpdateTask(this.task, this.task.userId);
+        if(this.task.userId != 0) {
+            StartCoroutine(apiManager.UpdateTaskForUser(this.task, this.task.userId));
+        } else {
+            StartCoroutine(apiManager.UpdateTask(this.task));
+        }
     }
 
     public void UpdateTaskStatus() {
         this.task.status = this.status;
-        apiManager.UpdateTask(this.task, this.task.userId);
+        if(this.task.userId != 0) {
+            StartCoroutine(apiManager.UpdateTaskForUser(this.task, this.task.userId));
+        } else {
+            StartCoroutine(apiManager.UpdateTask(this.task));
+        }
     }
 
     public void ClaimTask(long newUserId) {
         long oldUserId = this.task.userId;
         this.task.userId = newUserId;
-        apiManager.UpdateTask(this.task, oldUserId);
+        if(this.task.userId != 0) {
+            StartCoroutine(apiManager.UpdateTaskForUser(this.task, oldUserId));
+        } else {
+            StartCoroutine(apiManager.UpdateTaskForUser(this.task, newUserId));
+        }
     }
 }

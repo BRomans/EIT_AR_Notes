@@ -23,7 +23,7 @@ public class TaskController {
 
     @GetMapping("/tasks/all")
     public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+        return taskRepository.findAllByOrderByIdAsc();
     }
 
     @GetMapping("/tasks/{taskId}")

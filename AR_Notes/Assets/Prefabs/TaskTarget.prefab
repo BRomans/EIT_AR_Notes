@@ -2621,7 +2621,6 @@ MonoBehaviour:
   title: {fileID: 3471856916566557127}
   description: {fileID: 3471856916648619279}
   user: {fileID: 3471856916388325315}
-  status: 
   task:
     id: 0
     userId: 0
@@ -2629,6 +2628,7 @@ MonoBehaviour:
     title: 
     description: 
     status: 
+  status: 
 --- !u!114 &1307520858470330228
 MonoBehaviour:
   m_ObjectHideFlags: 0

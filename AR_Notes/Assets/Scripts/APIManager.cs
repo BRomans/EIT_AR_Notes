@@ -29,7 +29,8 @@ public class APIManager : MonoBehaviour
     void Update()
     {
         // uncomment to start polling the server
-        //UpdateCurrentState();  
+        // UpdateCurrentState(); 
+
     }
 
     public void RegenerateTasks() {
@@ -91,15 +92,37 @@ public class APIManager : MonoBehaviour
         return users;
     }
 
-    public IEnumerator UpdateTask(Task task, long userId)
+    public IEnumerator UpdateTaskForUser(Task task, long userId)
     {
-
-        var uwr = new UnityWebRequest(String.Format("http://{0}:{1}/users/{2}/tasks/update/{3}",  server, port, userId, task.id), "POST");
+        Debug.Log("Updating task for user" + task.ToString());
+        var uwr = new UnityWebRequest(String.Format("http://{0}:{1}/users/{2}/tasks/update/{3}",  server, port, userId, task.id), "PUT");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes( JsonUtility.ToJson(task));
         uwr.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
         uwr.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         uwr.SetRequestHeader("Content-Type", "application/json");
-        Debug.Log("CALLED UPDATE TASK");
+        //Send the request then wait here until it returns
+        yield return uwr.SendWebRequest();
+
+        if (uwr.isNetworkError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
+            UpdateCurrentState();
+            RegenerateTasks();   
+        }
+    }
+
+    public IEnumerator UpdateTask(Task task)
+    {
+        Debug.Log("Updating task" + task.ToString());
+        var uwr = new UnityWebRequest(String.Format("http://{0}:{1}/tasks/update/{2}",  server, port, task.id), "PUT");
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes( JsonUtility.ToJson(task));
+        uwr.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+        uwr.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        uwr.SetRequestHeader("Content-Type", "application/json");
         //Send the request then wait here until it returns
         yield return uwr.SendWebRequest();
 

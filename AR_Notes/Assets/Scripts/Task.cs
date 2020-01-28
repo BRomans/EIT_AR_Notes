@@ -12,8 +12,9 @@ public class Task {
     public string title;
     public string description;
     public string status;
-    public DateTime startDate;
-    public DateTime endDate;
-    public DateTime createdAt;
-    public DateTime updatedAt;
+    public string startDate;
+    public string endDate;
+    public string createdAt;
+    public string updatedAt;
+    public string marker;
 }
