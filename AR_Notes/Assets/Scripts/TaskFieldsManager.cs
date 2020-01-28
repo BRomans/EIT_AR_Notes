@@ -20,7 +20,6 @@ public class TaskFieldsManager : MonoBehaviour
     void Start()
     {
         apiManager= GameObject.FindObjectOfType<APIManager>();
-        //apiManager = apiManagerObj.GetComponent<APIManager>();
         Debug.Log(apiManager);
     }
 

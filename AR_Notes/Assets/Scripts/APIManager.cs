@@ -12,10 +12,10 @@ public class APIManager : MonoBehaviour
 {
 
     // uncomment this if you are working on the same machine where the server is hosted
-    private string server = "localhost";
+    // private string server = "localhost";
 
     // uncomment this if you are working on a client that is not the server host
-    // private string server = "192.168.43.225";
+    private string server = "192.168.43.225";
 
     private string port = "8080";
     public Task[] currentTasks;
