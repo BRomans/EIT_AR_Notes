@@ -52,6 +52,23 @@ public class TaskController {
                 }).orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + taskId));
     }
 
+
+    @PutMapping("/tasks/update/{taskId}")
+    public Task updateTask(@PathVariable Long taskId,
+                                  @Valid @RequestBody Task taskRequest) {
+        return taskRepository.findById(taskId)
+                .map(task -> {
+                    task.setUserId(taskRequest.getUserId());
+                    task.setDescription(taskRequest.getDescription());
+                    task.setTitle(taskRequest.getTitle());
+                    task.setStatus(taskRequest.getStatus());
+                    task.setStartDate(taskRequest.getStartDate());
+                    task.setEndDate(taskRequest.getEndDate());
+                    task.setMarker(taskRequest.getMarker());
+                    return taskRepository.save(task);
+                }).orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + taskId));
+    }
+
     @GetMapping("/users/{userId}/tasks")
     public List<Task> getTasksByUserId(@PathVariable Long userId) {
         return taskRepository.findTasksByUserId(userId);
