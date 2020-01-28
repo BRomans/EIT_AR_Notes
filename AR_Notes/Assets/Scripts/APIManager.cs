@@ -11,7 +11,12 @@ using TMPro;
 public class APIManager : MonoBehaviour
 {
 
+    // uncomment this if you are working on the same machine where the server is hosted
     private string server = "localhost";
+
+    // uncomment this if you are working on a client that is not the server host
+    // private string server = "192.168.43.225";
+
     private string port = "8080";
     public Task[] currentTasks;
     public User[]  currentUsers;
@@ -21,8 +26,7 @@ public class APIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateCurrentState();   
-        RegenerateTasks();    
+        InvokeRepeating("UpdateAndRegenerateTasks", 0.5f, 5.0f);   
     }
 
     // Update is called once per frame
@@ -30,7 +34,11 @@ public class APIManager : MonoBehaviour
     {
         // uncomment to start polling the server
         // UpdateCurrentState(); 
+    }
 
+    private void UpdateAndRegenerateTasks() {
+        UpdateCurrentState();   
+        RegenerateTasks();
     }
 
     public void RegenerateTasks() {

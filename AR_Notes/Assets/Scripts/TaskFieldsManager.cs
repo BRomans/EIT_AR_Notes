@@ -10,6 +10,7 @@ public class TaskFieldsManager : MonoBehaviour
     public TextMeshPro title;
     public TextMeshPro description;
     public TextMeshPro user;
+    public TMP_InputField descriptionInput;
     public Task task;
     public string status;
     private APIManager apiManager; 
@@ -29,8 +30,8 @@ public class TaskFieldsManager : MonoBehaviour
         
     }
 
-    public void changeStatus(string status) {
-        this.status = status;
+    public void SetInputField() {
+        this.descriptionInput.text = this.task.description;
     }
 
     public void SetFields(Task task, String title, String description, String username) {
@@ -41,7 +42,7 @@ public class TaskFieldsManager : MonoBehaviour
     }
 
     public void UpdateTaskDescription() {
-        this.task.description = this.description.text;
+        this.task.description = this.descriptionInput.text;
         if(this.task.userId != 0) {
             StartCoroutine(apiManager.UpdateTaskForUser(this.task, this.task.userId));
         } else {
@@ -49,8 +50,8 @@ public class TaskFieldsManager : MonoBehaviour
         }
     }
 
-    public void UpdateTaskStatus() {
-        this.task.status = this.status;
+    public void UpdateTaskStatus(string status) {
+        this.task.status = status;
         if(this.task.userId != 0) {
             StartCoroutine(apiManager.UpdateTaskForUser(this.task, this.task.userId));
         } else {
