@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This class defines the methods to update the status of a Task
+/// </summary>
 public class AddTasktoSection : MonoBehaviour
 {
     public TextMeshPro currentStatus;
@@ -13,7 +16,9 @@ public class AddTasktoSection : MonoBehaviour
     public Material completedMaterial;
     private string statusName;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Init the status band when the component is created
+    /// </summary>
     void Start()
     {
         if (fieldsManager.task.status == "todo")
@@ -35,7 +40,9 @@ public class AddTasktoSection : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Updates the status band every frame to make it consistent with changes
+    /// </summary>
     void Update()
     {
          if (fieldsManager.task.status == "todo")
@@ -57,6 +64,10 @@ public class AddTasktoSection : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Changes the status of a Task based on the collider of the section it enters
+    /// </summary>
+    /// <param name="other">Collider of the section</param>
     void OnTriggerEnter(Collider other)
     {  
         if (other.gameObject.name == "ImageTarget_ToDo")
@@ -82,6 +93,10 @@ public class AddTasktoSection : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the label of the Status band
+    /// </summary>
+    /// <param name="status">Label of the new status</param>
     public void ChangeStatusText(string status) {
         this.statusName = status;
         this.currentStatus.SetText(status);

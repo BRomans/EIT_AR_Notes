@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that supporst the standard JsonUtility in parsing a list of JSON objects
+/// </summary>
 public static class JsonHelper
 {
     public static T[] FromJson<T>(string json)

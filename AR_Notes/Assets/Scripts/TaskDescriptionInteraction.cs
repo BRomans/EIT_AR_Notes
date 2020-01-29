@@ -3,7 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
-
+/// <summary>
+/// Deprecated class for managing the interaction with the TaskDescription
+/// </summary>
 public class TaskDescriptionInteraction : MonoBehaviour
 {
     public enum objectType { TextMeshPro = 0, TextMeshProUGUI = 1 };
@@ -20,7 +22,6 @@ public class TaskDescriptionInteraction : MonoBehaviour
     void Awake()
     {
         // Get a reference to the TMP text component if one already exists otherwise add one.
-        // This example show the convenience of having both TMP components derive from TMP_Text. 
         if (ObjectType == 0)
             m_text = GetComponent<TextMeshPro>() ?? gameObject.AddComponent<TextMeshPro>();
         else

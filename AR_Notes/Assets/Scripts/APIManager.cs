@@ -8,6 +8,9 @@ using System.Net;
 using Vuforia;
 using TMPro;
 
+/// <summary>
+/// This class manages the connection with the server and implements RESTful methods to call the APIs.
+/// </summary>
 public class APIManager : MonoBehaviour
 {
 
@@ -22,42 +25,57 @@ public class APIManager : MonoBehaviour
     public User[]  currentUsers;
     public GameObject[] taskObjects; 
     public GameObject taskPrefab;
+    private float refreshRate = 5.0f;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Setup a scheduler that fetches the Tasks after 0.5 seconds and refresh them every 5 seconds.
+    /// </summary>
     void Start()
     {
-        InvokeRepeating("UpdateAndRegenerateTasks", 0.5f, 5.0f);   
+        InvokeRepeating("UpdateAndRegenerateTasks", 0.5f, refreshRate);   
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Can be used for realtime refresh from the server, NOT SAFE for the actual system, calls the function EVERY frame
+    /// </summary>
     void Update()
     {
         // uncomment to start polling the server
         // UpdateCurrentState(); 
     }
 
+    /// <summary>
+    /// Refresh the state of the system by fetching Users, Tasks and regenerating the objects
+    /// </summary>
     private void UpdateAndRegenerateTasks() {
         UpdateCurrentState();   
         RegenerateTasks();
     }
 
+    /// <summary>
+    /// Regenerates all the Task game objects using the Tasks data retrieved from the server
+    /// </summary>
     public void RegenerateTasks() {
         //taskObjects = new GameObject[currentTasks.Length];
         for(int i=0; i< currentTasks.Length; i++)
         {
-            //GameObject task = Instantiate(taskPrefab, new Vector3(i * 0.32f,0,0), Quaternion.identity) as GameObject;
             GameObject task = taskObjects[i];
             task.GetComponent<TaskFieldsManager>().SetFields(currentTasks[i], currentTasks[i].title, currentTasks[i].description, returnUserName(currentTasks[i].userId));
-            //taskObjects[i] = task;
         }
     }
 
+    /// <summary>
+    /// Fetches all the Users and all the Tasks from the server
+    /// </summary>
     public void UpdateCurrentState() {
         currentUsers = GetUsers();
         currentTasks = GetTasks(); 
     }
 
-    // this method isn't use anymore because inefficient
+    /// <summary>
+    /// This method was used to assign procedurally Tasks to augmented ImageTargets, every frame.
+    /// This method is DEPRECATED because inefficient.
+    /// </summary>
     public void SetupTrackables() 
     {
         IEnumerable<TrackableBehaviour> trackableBehaviours = TrackerManager.Instance.GetStateManager().GetActiveTrackableBehaviours();
@@ -76,10 +94,13 @@ public class APIManager : MonoBehaviour
 		}
     }
 
+    /// <summary>
+    /// Send a GET request to retrieve all the Tasks
+    /// </summary>
+    /// <returns>list of the Tasks</returns>
     private Task[] GetTasks()
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://{0}:{1}/tasks/all",  server, port));
-        //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://api.openweathermap.org/data/2.5/weather?id={0}&APPID={1}", 
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string jsonResponse = fixJson(reader.ReadToEnd());
@@ -88,6 +109,10 @@ public class APIManager : MonoBehaviour
         return tasks;
     }
 
+    /// <summary>
+    /// Send a GET request to retrieve all the Users
+    /// </summary>
+    /// <returns>list of the Users</returns>
     private User[] GetUsers()
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://{0}:{1}/users/all",  server, port));
@@ -100,9 +125,14 @@ public class APIManager : MonoBehaviour
         return users;
     }
 
+    /// <summary>
+    /// Send a POST request to update a Task for a specific User, then updates the state of the system
+    /// </summary>
+    /// <param name="task">The Task body</param>
+    /// <param name="userId">User Id</param>
+    /// <returns>A response</returns>
     public IEnumerator UpdateTaskForUser(Task task, long userId)
     {
-        Debug.Log("Updating task for user" + task.ToString());
         var uwr = new UnityWebRequest(String.Format("http://{0}:{1}/users/{2}/tasks/update/{3}",  server, port, userId, task.id), "PUT");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes( JsonUtility.ToJson(task));
         uwr.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
@@ -118,14 +148,17 @@ public class APIManager : MonoBehaviour
         else
         {
             Debug.Log("Received: " + uwr.downloadHandler.text);
-            UpdateCurrentState();
-            RegenerateTasks();   
+            UpdateAndRegenerateTasks();  
         }
     }
 
+    /// <summary>
+    /// Send a POST request to update a Task, then updates the state of the system
+    /// </summary>
+    /// <param name="task">The Task body</param>
+    /// <returns></returns>
     public IEnumerator UpdateTask(Task task)
     {
-        Debug.Log("Updating task" + task.ToString());
         var uwr = new UnityWebRequest(String.Format("http://{0}:{1}/tasks/update/{2}",  server, port, task.id), "PUT");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes( JsonUtility.ToJson(task));
         uwr.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
@@ -141,17 +174,26 @@ public class APIManager : MonoBehaviour
         else
         {
             Debug.Log("Received: " + uwr.downloadHandler.text);
-            UpdateCurrentState();
-            RegenerateTasks();   
+            UpdateAndRegenerateTasks(); 
         }
     }
 
+    /// <summary>
+    /// Support method to parse a list of JSON objects
+    /// </summary>
+    /// <param name="value">JSON string</param>
+    /// <returns>A parsed JSON string</returns>
     string fixJson(string value)
     {
         value = "{\"Items\":" + value + "}";
         return value;
     }
 
+    /// <summary>
+    /// Return the username of an user using its id
+    /// </summary>
+    /// <param name="id">The id of the User</param>
+    /// <returns>The username of the User</returns>
     public string returnUserName(long id) {
         for(int i=0; i< currentUsers.Length; i++) {
             if(id == currentUsers[i].id) {
