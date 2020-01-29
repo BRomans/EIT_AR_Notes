@@ -7,6 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
+/**
+ * Base model of a Project entity
+ * @author BRomans.
+ *
+ */
 @Entity
 @Table(name = "projects")
 public class Project extends AuditModel {

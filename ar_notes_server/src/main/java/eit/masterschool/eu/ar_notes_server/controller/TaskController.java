@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+
+/**
+ * Controller for REST endpoints of Task entity.
+ * @author BRomans.
+ *
+ */
 @RestController
 @Api(value = "tasks", description = "Operations for managing Tasks")
 public class TaskController {
@@ -21,17 +27,40 @@ public class TaskController {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Get all the tasks in ascending order by their id.
+     * @return all the tasks
+     */
     @GetMapping("/tasks/all")
     public List<Task> getAllTasks() {
         return taskRepository.findAllByOrderByIdAsc();
     }
 
+    /**
+     * Get a task by its id
+     * @param taskId
+     * @return a task
+     */
     @GetMapping("/tasks/{taskId}")
     public Task getTasksById(@PathVariable Long taskId) {
         return taskRepository.findTaskById(taskId);
     }
 
+    /**
+     * Create a new Task
+     * @param task
+     * @return the new Task
+     */
+    @PostMapping("/tasks/create")
+    public Task createTask(@Valid @RequestBody Task task) {
+        return taskRepository.save(task);
+    }
 
+    /**
+     * Delete a task using its id
+     * @param taskId
+     * @return a response entity
+     */
     @DeleteMapping("/tasks/delete/{taskId}")
     public ResponseEntity<?> deleteTask(@PathVariable Long taskId) {
         return taskRepository.findById(taskId)
@@ -42,6 +71,12 @@ public class TaskController {
 
     }
 
+    /**
+     * Change the title of a task using its id
+     * @param taskId
+     * @param taskRequest
+     * @return the updated task
+     */
     @PostMapping("/tasks/rename-task/{taskId}")
     public Task renameTask(@PathVariable Long taskId,
                            @Valid @RequestBody Task taskRequest) {
@@ -53,6 +88,12 @@ public class TaskController {
     }
 
 
+    /**
+     * Updates all the fields of a task using its id
+     * @param taskId
+     * @param taskRequest
+     * @return the updated task
+     */
     @PutMapping("/tasks/update/{taskId}")
     public Task updateTask(@PathVariable Long taskId,
                                   @Valid @RequestBody Task taskRequest) {
@@ -69,12 +110,23 @@ public class TaskController {
                 }).orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + taskId));
     }
 
+    /**
+     * Get all tasks assigned to a specific user
+     * @param userId
+     * @return a list of tasks
+     */
     @GetMapping("/users/{userId}/tasks")
     public List<Task> getTasksByUserId(@PathVariable Long userId) {
         return taskRepository.findTasksByUserId(userId);
     }
 
 
+    /**
+     * Claim a task for the current user
+     * @param userId
+     * @param task
+     * @return the claimed task
+     */
     @PostMapping("/users/{userId}/claim-task")
     public Task claimTask(@PathVariable Long userId,
                            @Valid @RequestBody Task task) {
@@ -86,6 +138,13 @@ public class TaskController {
     }
 
 
+    /**
+     * Update a task assigned to a specific user
+     * @param userId
+     * @param taskId
+     * @param taskRequest
+     * @return the assigned task
+     */
     @PutMapping("/users/{userId}/tasks/update/{taskId}")
     public Task updateTaskForUser(@PathVariable Long userId,
                                   @PathVariable Long taskId,
@@ -107,7 +166,13 @@ public class TaskController {
                 }).orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + taskId));
     }
 
-    @DeleteMapping("/users/{taskId}/tasks/delete/{taskId}")
+    /**
+     * Delete a task assigned to a specific user
+     * @param userId
+     * @param taskId
+     * @return a response entity
+     */
+    @DeleteMapping("/users/{userId}/tasks/delete/{taskId}")
     public ResponseEntity<?> deleteTaskForUser(@PathVariable Long userId,
                                                @PathVariable Long taskId) {
         if (!userRepository.existsById(userId)) {

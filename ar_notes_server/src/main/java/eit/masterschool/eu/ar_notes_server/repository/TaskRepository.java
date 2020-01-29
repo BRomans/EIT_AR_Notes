@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository to manage data for Task entities
+ * @author BRomans.
+ */
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 

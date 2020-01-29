@@ -6,6 +6,11 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Custom filter for CORS requests.
+ * @author BRomans.
+ *
+ */
 @Component
 public class SimpleCORSFilter implements Filter {
 

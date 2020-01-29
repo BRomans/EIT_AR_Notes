@@ -4,6 +4,12 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+
+/**
+ * Swagger properties for application.
+ * @author BRomans.
+ *
+ */
 @Data
 @Configuration("swaggerConfigProperties")
 public class SwaggerConfigProperties {

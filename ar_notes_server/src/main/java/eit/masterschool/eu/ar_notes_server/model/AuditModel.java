@@ -10,6 +10,12 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+
+/**
+ * Base model for auditing functionality
+ * @author BRomans.
+ *
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(

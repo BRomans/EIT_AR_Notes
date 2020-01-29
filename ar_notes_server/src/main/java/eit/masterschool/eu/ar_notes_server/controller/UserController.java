@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * Controller for REST endpoints of Task entity.
+ * @author BRomans.
+ *
+ */
 @RestController
 @Api(value="users", description="Operations for managing Users")
 public class UserController {
@@ -19,26 +24,51 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Get all users with a paged option
+     * @param pageable
+     * @return a page of users
+     */
     @GetMapping("/users/all/paged")
     public Page<User> getUsers(Pageable pageable) {
         return userRepository.findAll((pageable));
     }
 
+    /**
+     * Get a single user by its id
+     * @param userId
+     * @return a User
+     */
     @GetMapping("/users/{userId}")
     public User getUserById(@PathVariable Long userId) {
         return userRepository.getUserById((userId));
     }
 
+    /**
+     * Get all the users
+     * @return a list of Users
+     */
     @GetMapping("/users/all")
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
+    /**
+     * Create a new User
+     * @param user
+     * @return the new User
+     */
     @PostMapping("/users/create")
     public User createUser(@Valid @RequestBody User user) {
         return userRepository.save(user);
     }
 
+    /**
+     * Update an existing User by its id
+     * @param userId
+     * @param userRequest
+     * @return the updated User
+     */
     @PutMapping("/users/update/{userId}")
     public User updateUser(@PathVariable Long userId,
                                    @Valid @RequestBody User userRequest) {
@@ -53,6 +83,11 @@ public class UserController {
     }
 
 
+    /**
+     * Delete an existing User by its id
+     * @param userId
+     * @return a response entity
+     */
     @DeleteMapping("/users/delete/{userId}")
     public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
         return userRepository.findById(userId)

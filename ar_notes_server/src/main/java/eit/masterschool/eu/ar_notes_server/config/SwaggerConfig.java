@@ -14,6 +14,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import java.time.LocalDate;
 
+/**
+ * Swagger paths configuration
+ * @author BRomans.
+ *
+ */
 @Configuration
 @EnableSwagger2WebMvc
 public class SwaggerConfig {

@@ -3,6 +3,11 @@ package eit.masterschool.eu.ar_notes_server.model;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Base model of a Task entity
+ * @author BRomans.
+ *
+ */
 @Entity
 @Table(name = "tasks")
 public class Task extends AuditModel {

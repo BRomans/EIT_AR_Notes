@@ -5,6 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Base model of a User entity
+ * @author BRomans.
+ *
+ */
 @Entity
 @Table(name = "users")
 public class User extends AuditModel {

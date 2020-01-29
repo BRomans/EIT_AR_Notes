@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository to manage data for User entities
+ * @author BRomans.
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
