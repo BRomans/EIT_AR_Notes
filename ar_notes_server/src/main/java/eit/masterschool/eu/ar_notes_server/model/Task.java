@@ -24,6 +24,7 @@ public class Task extends AuditModel {
     private Date endDate;
     private String status;
     private String marker;
+    private boolean isEmpty;
 
     public Task() {
 
@@ -111,5 +112,13 @@ public class Task extends AuditModel {
 
     public void setMarker(String marker) {
         this.marker = marker;
+    }
+
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    public void setEmpty(boolean empty) {
+        isEmpty = empty;
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 
@@ -106,6 +107,30 @@ public class TaskController {
                     task.setStartDate(taskRequest.getStartDate());
                     task.setEndDate(taskRequest.getEndDate());
                     task.setMarker(taskRequest.getMarker());
+                    task.setEmpty(taskRequest.isEmpty());
+                    return taskRepository.save(task);
+                }).orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + taskId));
+    }
+
+    /**
+     * Updates all the fields of a task using its id
+     * @param taskId
+     * @param taskRequest
+     * @return the updated task
+     */
+    @PutMapping("/tasks/clear/{taskId}")
+    public Task clearTask(@PathVariable Long taskId,
+                           @Valid @RequestBody Task taskRequest) {
+        return taskRepository.findById(taskId)
+                .map(task -> {
+                    task.setUserId(taskRequest.getUserId());
+                    task.setDescription("");
+                    task.setTitle(taskRequest.getTitle());
+                    task.setStatus("todo");
+                    task.setStartDate(new Date());
+                    task.setEndDate(new Date());
+                    task.setMarker(taskRequest.getMarker());
+                    task.setEmpty(true);
                     return taskRepository.save(task);
                 }).orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + taskId));
     }
@@ -162,6 +187,7 @@ public class TaskController {
                     task.setStartDate(taskRequest.getStartDate());
                     task.setEndDate(taskRequest.getEndDate());
                     task.setMarker(taskRequest.getMarker());
+                    task.setEmpty(taskRequest.isEmpty());
                     return taskRepository.save(task);
                 }).orElseThrow(() -> new ResourceNotFoundException("Task not found with id " + taskId));
     }
