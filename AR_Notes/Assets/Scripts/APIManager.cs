@@ -2,9 +2,10 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Networking;
-using UnityEngine;
+using System.Threading;
 using System.Net;
+using UnityEngine;
+using UnityEngine.Networking;
 using Vuforia;
 using TMPro;
 
@@ -15,10 +16,10 @@ public class APIManager : MonoBehaviour
 {
 
     // uncomment this if you are working on the same machine where the server is hosted
-    // private string server = "localhost";
+    private string server = "localhost";
 
     // uncomment this if you are working on a client that is not the server host
-    private string server = "192.168.43.225";
+    //private string server = "192.168.43.225";
 
     private string port = "8080";
     public Task[] currentTasks;
@@ -26,6 +27,7 @@ public class APIManager : MonoBehaviour
     public GameObject[] taskObjects; 
     public GameObject taskPrefab;
     private float refreshRate = 5.0f;
+    Thread thread;
 
     /// <summary>
     /// Setup a scheduler that fetches the Tasks after 0.5 seconds and refresh them every 5 seconds.
@@ -48,7 +50,8 @@ public class APIManager : MonoBehaviour
     /// Refresh the state of the system by fetching Users, Tasks and regenerating the objects
     /// </summary>
     private void UpdateAndRegenerateTasks() {
-        UpdateCurrentState();   
+        thread = new Thread(UpdateCurrentState);
+        thread.Start();  
         RegenerateTasks();
     }
 
@@ -100,12 +103,17 @@ public class APIManager : MonoBehaviour
     /// <returns>list of the Tasks</returns>
     private Task[] GetTasks()
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://{0}:{1}/tasks/all",  server, port));
-        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        StreamReader reader = new StreamReader(response.GetResponseStream());
-        string jsonResponse = fixJson(reader.ReadToEnd());
-        Debug.Log("Task Response" + jsonResponse);
-        Task[] tasks = JsonHelper.FromJson<Task>(jsonResponse);
+        Task[] tasks = {};
+        try {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://{0}:{1}/tasks/all",  server, port));
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string jsonResponse = fixJson(reader.ReadToEnd());
+            Debug.Log("Task Response" + jsonResponse);
+            tasks = JsonHelper.FromJson<Task>(jsonResponse);
+        } catch (Exception exception) {
+            Debug.LogError("Couldn't load tasks due to the following exception:" + exception);
+        }
         return tasks;
     }
 
@@ -115,13 +123,18 @@ public class APIManager : MonoBehaviour
     /// <returns>list of the Users</returns>
     private User[] GetUsers()
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://{0}:{1}/users/all",  server, port));
-        //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://api.openweathermap.org/data/2.5/weather?id={0}&APPID={1}", 
-        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        StreamReader reader = new StreamReader(response.GetResponseStream());
-        string jsonResponse = fixJson(reader.ReadToEnd());
-        Debug.Log("User Response" + jsonResponse);
-        User[] users = JsonHelper.FromJson<User>(jsonResponse);
+        User[] users = {};
+        try {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://{0}:{1}/users/all",  server, port));
+            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://api.openweathermap.org/data/2.5/weather?id={0}&APPID={1}", 
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string jsonResponse = fixJson(reader.ReadToEnd());
+            Debug.Log("User Response" + jsonResponse);
+            users = JsonHelper.FromJson<User>(jsonResponse);
+        } catch (Exception exception) {
+            Debug.LogError("Couldn't load users due to the following exception:" + exception);
+        }
         return users;
     }
 
