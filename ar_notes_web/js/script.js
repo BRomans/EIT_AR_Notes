@@ -4,7 +4,9 @@ $( function() {
     });
     $( ".sortable" ).droppable();
 
-    const serverAddress = '192.168.43.225';
+    //const serverAddress = '192.168.43.225';
+    const serverAddress = 'localhost';
+
 
     const allTaskUrl = 'http://'+ serverAddress + ':8080/tasks/all';
     const todoList = document.querySelector('#todo');

@@ -13,7 +13,9 @@ ScriptsOnlyBuild:
     - GitHub.Unity.GitLocksCache
     - GitHub.Unity.GitLogCache
     - GitHub.Unity.GitStatusCache
+    - GitHub.Unity.GitUserCache
     - GitHub.Unity.RepositoryInfoCache
+    - GitHub.Unity.Window
     Unity.TextMeshPro.dll:
     - TMPro.TMP_ColorGradient
     - TMPro.TMP_FontAsset
@@ -43,7 +45,7 @@ ScriptsOnlyBuild:
     - DefaultInitializationErrorHandler
     - DefaultTrackableEventHandler
   sceneClasses:
-    Assets/Scenes/Prototype 3.unity:
+    Assets/Scenes/Prototype 4.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -79,55 +81,55 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9794}
+      Script: {instanceID: 9796}
     - Class: 114
-      Script: {instanceID: 9990}
+      Script: {instanceID: 9992}
     - Class: 114
-      Script: {instanceID: 10012}
+      Script: {instanceID: 10014}
     - Class: 114
-      Script: {instanceID: 10186}
+      Script: {instanceID: 10188}
     - Class: 114
-      Script: {instanceID: 10264}
+      Script: {instanceID: 10266}
     - Class: 114
-      Script: {instanceID: 10380}
+      Script: {instanceID: 10382}
     - Class: 114
-      Script: {instanceID: 10402}
+      Script: {instanceID: 10404}
     - Class: 114
-      Script: {instanceID: 10432}
+      Script: {instanceID: 10434}
     - Class: 114
-      Script: {instanceID: 10498}
+      Script: {instanceID: 10500}
     - Class: 114
-      Script: {instanceID: 10520}
-    - Class: 114
-      Script: {instanceID: 10528}
+      Script: {instanceID: 10522}
     - Class: 114
       Script: {instanceID: 10530}
     - Class: 114
-      Script: {instanceID: 10566}
+      Script: {instanceID: 10532}
     - Class: 114
-      Script: {instanceID: 11036}
+      Script: {instanceID: 10568}
     - Class: 114
       Script: {instanceID: 11038}
     - Class: 114
-      Script: {instanceID: 11086}
+      Script: {instanceID: 11040}
     - Class: 114
-      Script: {instanceID: 11230}
+      Script: {instanceID: 11088}
     - Class: 114
-      Script: {instanceID: 11258}
+      Script: {instanceID: 11232}
     - Class: 114
-      Script: {instanceID: 11274}
+      Script: {instanceID: 11260}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11276}
     - Class: 114
-      Script: {instanceID: 11520}
+      Script: {instanceID: 11460}
     - Class: 114
-      Script: {instanceID: 11690}
+      Script: {instanceID: 11522}
     - Class: 114
-      Script: {instanceID: 11796}
+      Script: {instanceID: 11692}
     - Class: 114
-      Script: {instanceID: 11806}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 11982}
+      Script: {instanceID: 11808}
+    - Class: 114
+      Script: {instanceID: 11984}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1603,5 +1605,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Prototype 3.unity
-  playerPath: C:/Users/miche/workspace/EIT_AR_Notes/AR_Notes/ar_notes_alpha0.0.1.apk
+  - Assets/Scenes/Prototype 4.unity
+  playerPath: C:/Users/miche/workspace/EIT_AR_Notes/AR_Notes/ar_notes_alpha0.1.3.apk
