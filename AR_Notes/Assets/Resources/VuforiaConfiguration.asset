@@ -22,7 +22,7 @@ MonoBehaviour:
     useDelayedLoadingObjectTargets: 0
     modelTargetRecoWhileExtendedTracked: 1
     version: 8.6.10
-    eulaAcceptedVersions: '{"Values":["8.3","8.5","8.6"]}'
+    eulaAcceptedVersions: '{"Values":["8.3","8.5","8.6","8.1"]}'
     modelTargetMode: 0
   database:
     disableModelExtraction: 0
@@ -40,6 +40,6 @@ MonoBehaviour:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: Microsoft Camera Rear
+    deviceNameSetInEditor: Microsoft Camera Front
     turnOffWebCam: 0
     renderTextureLayer: 30

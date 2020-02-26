@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3471856916388325313}
   - component: {fileID: 3471856916388325312}
   - component: {fileID: 3471856916388325315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TaskAssignee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 3471856916398440439}
   - component: {fileID: 3471856916398440437}
   - component: {fileID: 3471856916398440436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 3471856916501134415}
   - component: {fileID: 3471856916501134413}
   - component: {fileID: 3471856916501134412}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 3471856916566557125}
   - component: {fileID: 3471856916566557124}
   - component: {fileID: 3471856916566557127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TaskTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 3471856916648619277}
   - component: {fileID: 3471856916648619276}
   - component: {fileID: 3471856916648619279}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TaskDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 3471856916718264918}
   - component: {fileID: 3471856916718264937}
   - component: {fileID: 3471856916718264936}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: SaveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,7 +1025,7 @@ GameObject:
   - component: {fileID: 3471856916798791721}
   - component: {fileID: 3471856916798791703}
   - component: {fileID: 3471856916798791702}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 3471856916832886465}
   - component: {fileID: 3471856916832886464}
   - component: {fileID: 3471856916832886467}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TaskAssigned
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1384,7 +1384,7 @@ GameObject:
   - component: {fileID: 3471856916857189009}
   - component: {fileID: 3471856916857189008}
   - component: {fileID: 3471856916857189011}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: EditButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1567,7 +1567,7 @@ GameObject:
   - component: {fileID: 3471856916941944499}
   - component: {fileID: 3471856916941944497}
   - component: {fileID: 3471856916941944496}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1725,7 +1725,7 @@ GameObject:
   - component: {fileID: 3471856917092839377}
   - component: {fileID: 3471856917092839376}
   - component: {fileID: 3471856917092839379}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ClearButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1854,7 +1854,7 @@ GameObject:
   - component: {fileID: 3471856917093716389}
   - component: {fileID: 3471856917093716388}
   - component: {fileID: 3471856917093716391}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: InputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2036,7 +2036,7 @@ GameObject:
   - component: {fileID: 3471856917344095395}
   - component: {fileID: 3471856917344095394}
   - component: {fileID: 3471856917344095397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ButtonsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2130,7 @@ GameObject:
   - component: {fileID: 3471856917373109717}
   - component: {fileID: 3471856917373109716}
   - component: {fileID: 3471856917373109719}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ClaimButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2246,7 +2246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3471856917450281675}
   - component: {fileID: 3471856917450281672}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2297,7 +2297,7 @@ GameObject:
   - component: {fileID: 3471856917523905430}
   - component: {fileID: 3471856917523905428}
   - component: {fileID: 3471856917523905431}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2453,7 +2453,7 @@ GameObject:
   - component: {fileID: 3471856917565893941}
   - component: {fileID: 3471856917565893940}
   - component: {fileID: 3471856917565893943}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TextContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2555,9 +2555,11 @@ GameObject:
   - component: {fileID: 3471856917639082120}
   - component: {fileID: 2682932622038281099}
   - component: {fileID: 1307520858470330228}
-  m_Layer: 0
+  - component: {fileID: 4093578221485995237}
+  - component: {fileID: 8783550509429802723}
+  m_Layer: 8
   m_Name: TaskTarget
-  m_TagString: Untagged
+  m_TagString: Task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2667,8 +2669,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4905237, y: 0.5, z: 1}
-  m_Center: {x: 0.49526143, y: 0.25, z: 0}
+  m_Size: {x: 1.4905237, y: 1.4, z: 1}
+  m_Center: {x: 0.49526143, y: 0, z: 0}
 --- !u!114 &3471856917639082120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2738,6 +2740,34 @@ MonoBehaviour:
   mWidth: 6
   mHeight: 12
   mRuntimeTexture: {fileID: 0}
+--- !u!114 &4093578221485995237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471856917639082113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab12ad12ad624d4394d6f9a50a86c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &8783550509429802723
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471856917639082113}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3471856917653393425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,7 +2780,7 @@ GameObject:
   - component: {fileID: 3471856917653393437}
   - component: {fileID: 3471856917653393436}
   - component: {fileID: 3471856917653393439}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2853,7 +2883,7 @@ GameObject:
   - component: {fileID: 3471856917787109605}
   - component: {fileID: 3471856917787109603}
   - component: {fileID: 3471856917787109602}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3006,7 +3036,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3471856917867214415}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TaskTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3040,7 +3070,7 @@ GameObject:
   - component: {fileID: 3471856918091690725}
   - component: {fileID: 3471856918091690723}
   - component: {fileID: 3471856918091690722}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3195,7 +3225,7 @@ GameObject:
   - component: {fileID: 3374109352684289603}
   - component: {fileID: 7957155574956720445}
   - component: {fileID: 2035694433759144800}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3351,7 +3381,7 @@ GameObject:
   - component: {fileID: 3452004290484792590}
   - component: {fileID: 1376327375321562183}
   - component: {fileID: 4360831708905264086}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: TitleInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3534,7 +3564,7 @@ GameObject:
   - component: {fileID: 3709457141659277226}
   - component: {fileID: 3384238548807338954}
   - component: {fileID: 9104155321805873953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TaskStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3737,7 +3767,7 @@ GameObject:
   - component: {fileID: 686437217742514670}
   - component: {fileID: 4710221961783778239}
   - component: {fileID: 8606498971993594850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StatusBand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3842,7 +3872,7 @@ GameObject:
   - component: {fileID: 129597505661919165}
   - component: {fileID: 5606508592706234253}
   - component: {fileID: 2927655740854210940}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3996,7 +4026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3571464066458191394}
   - component: {fileID: 5466239917142966061}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
