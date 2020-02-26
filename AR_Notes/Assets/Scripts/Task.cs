@@ -20,4 +20,5 @@ public class Task {
     public string createdAt;
     public string updatedAt;
     public string marker;
+    public bool isEmpty;
 }

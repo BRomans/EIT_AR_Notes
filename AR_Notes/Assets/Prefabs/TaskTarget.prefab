@@ -2610,8 +2610,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4905236, y: 0, z: 1}
-  m_Center: {x: 0.49526143, y: 0, z: 0}
+  m_Size: {x: 1.4905237, y: 0.5, z: 1}
+  m_Center: {x: 0.49526143, y: 0.25, z: 0}
 --- !u!114 &3471856917639082120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2658,6 +2658,7 @@ MonoBehaviour:
     createdAt: 
     updatedAt: 
     marker: 
+    isEmpty: 0
   status: 
 --- !u!114 &1307520858470330228
 MonoBehaviour:
