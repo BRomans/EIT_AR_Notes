@@ -123,9 +123,9 @@ public class TaskController {
                            @Valid @RequestBody Task taskRequest) {
         return taskRepository.findById(taskId)
                 .map(task -> {
-                    task.setUserId(taskRequest.getUserId());
+                    task.setUserId(null);
                     task.setDescription("");
-                    task.setTitle(taskRequest.getTitle());
+                    task.setTitle("");
                     task.setStatus("todo");
                     task.setStartDate(new Date());
                     task.setEndDate(new Date());
