@@ -2534,6 +2534,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StatusFilter: 2
+  OnTargetFound:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTargetLost:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3471856917639082124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2672,6 +2679,7 @@ MonoBehaviour:
   mImageTargetType: 0
   mWidth: 6
   mHeight: 12
+  mRuntimeTexture: {fileID: 0}
 --- !u!1 &3471856917653393425
 GameObject:
   m_ObjectHideFlags: 0
