@@ -192,6 +192,32 @@ public class APIManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Send a POST request to clear a Task, then updates the state of the system
+    /// </summary>
+    /// <param name="task">The Task body</param>
+    /// <returns></returns>
+    public IEnumerator ClearTask(Task task)
+    {
+        var uwr = new UnityWebRequest(String.Format("http://{0}:{1}/tasks/clear/{2}",  server, port, task.id), "PUT");
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes( JsonUtility.ToJson(task));
+        uwr.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+        uwr.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        uwr.SetRequestHeader("Content-Type", "application/json");
+        //Send the request then wait here until it returns
+        yield return uwr.SendWebRequest();
+
+        if (uwr.isNetworkError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
+            UpdateAndRegenerateTasks(); 
+        }
+    }
+
+    /// <summary>
     /// Support method to parse a list of JSON objects
     /// </summary>
     /// <param name="value">JSON string</param>

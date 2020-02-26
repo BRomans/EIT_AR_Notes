@@ -66,6 +66,13 @@ public class TaskFieldsManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Ulear the fields of a task then calls the APIManager to update the server
+    /// </summary>
+    public void ClearTaskContent() {        
+        StartCoroutine(apiManager.ClearTask(this.task));
+    }
+
+    /// <summary>
     /// Updates the status of a task then calls the APIManager to update the server
     /// <param name="status">New Task status</param>
     /// </summary>
