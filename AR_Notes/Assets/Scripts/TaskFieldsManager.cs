@@ -59,7 +59,7 @@ public class TaskFieldsManager : MonoBehaviour
     /// Setup the title text box
     /// </summary>
     public void SetTitleField() {
-        this.title.SetText(this.titleInput.text);
+        this.title.SetText(this.task.title);
     }
 
     /// <summary>
@@ -82,12 +82,14 @@ public class TaskFieldsManager : MonoBehaviour
     public void UpdateTaskDescription() {
         bool modified = false;
         Debug.Log("text:" + this.descriptionInput.text);
-        if(this.descriptionInput.text != null || this.descriptionInput.text != "") {
+        if(this.descriptionInput.text != null && this.descriptionInput.text != "") {
             this.task.description = this.descriptionInput.text;
+            this.description.text = this.task.description;
             modified = true;
         }
-        if(this.titleInput.text != null || this.titleInput.text != "") {
+        if(this.titleInput.text != null && this.titleInput.text != "") {
             this.task.title = this.titleInput.text;
+            this.title.text = this.task.title;
             modified = true;
         }
         if(modified) {

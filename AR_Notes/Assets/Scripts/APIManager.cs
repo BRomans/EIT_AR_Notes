@@ -50,9 +50,11 @@ public class APIManager : MonoBehaviour
     /// Refresh the state of the system by fetching Users, Tasks and regenerating the objects
     /// </summary>
     private void UpdateAndRegenerateTasks() {
-        thread = new Thread(UpdateCurrentState);
-        thread.Start();  
+        //thread = new Thread(UpdateCurrentState);
+        //thread.Start();
+        UpdateCurrentState();
         RegenerateTasks();
+  
     }
 
     /// <summary>

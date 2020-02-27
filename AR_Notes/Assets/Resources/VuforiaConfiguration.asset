@@ -16,7 +16,7 @@ MonoBehaviour:
     vuforiaLicenseKey: AR2mC03/////AAABmb0B66VuIEWEkH6sehcDXjYqlaLFbQVa62Wwcc611s1LUDYBsdR0vxcUF26gen/ZML+VEt09o+MIpuMV2eakTCDhMjuq1HkyGJvgxTWUGALD0wTcI5b7V3cKbKaDoxN/PzLvateaT5q/GggcbGch0sDmk7bxRqghe/1W1Rzbu7zt2P9/zFsgoSavVtyIrIV/F8LR//Pr0ma1BBaYS3TGRVgSvjxsZ4G0SK4ykyyz6R7IB6ZaBstr4i4+i+zohbONo8nayW+Q3XpyYAR5mneSdsNn6WBJeSPgK2SHkZ4SjUhvA0lhi+SZ+juTQ7XxB7sqjvAkkLj6tTOVB6ULeHrx1jJDsT85xoMJZqXUG/hMn0aI
     ufoLicenseKey: QVZYOUFFLy8vLy8vQUFBQUtQNkRsTWhHUVVXTmd1dHRNV3NQTlFZYlRNZklGQ3JMbWlqaUpQa01tRVZtYmVqSHpYMDNWYXZGWTdTSFBEcjV6UGM3RzE1OWNSSHh4Y0tjR2xuUGpZUVdtdlZqZVhTQTEwYmFxRm54QzV3TUZ4RUl0Tklta1E5VmtCVk9xcFArdThpUVlKT0hqUXZrNUxLVnVUdjlxOXBNRGptOS9Vb1pFVGk0K0l3OExsa2tTemZoV3l3NWtxSHBlWnZBbHRLR0k0UVEwSGdqeGRJcTJRYk5LWnZ6TWluSm1jT1lSdDVBU0ZqbjVNOVZoNmprRTd1dG5BZE11amhjdGhQeWk2aEVWVEt5T3RPeGhGQTJHYmlremQweDIybkY5UXdldHlaT0pQZ0k0Tk1qZ3E3aUVoeHJWcW0vTy94RlBTRXptRDlzcnptYWxlY2RJYUU5eXN6aEViZ2lBRit0QlVEUkplUUlPY2JhN2RnOUdjTG8=
     delayedInitialization: 0
-    cameraDeviceModeSetting: -1
+    cameraDeviceModeSetting: -2
     maxSimultaneousImageTargets: 12
     maxSimultaneousObjectTargets: 0
     useDelayedLoadingObjectTargets: 0
@@ -34,12 +34,12 @@ MonoBehaviour:
   deviceTracker:
     autoInitTracker: 0
     autoStartTracker: 0
-    arcoreRequirement: 0
+    arcoreRequirement: 1
     autoImportArcore: 0
   smartTerrain:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: Microsoft Camera Front
+    deviceNameSetInEditor: Logitech Webcam C930e
     turnOffWebCam: 0
     renderTextureLayer: 30
