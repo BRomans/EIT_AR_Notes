@@ -50,7 +50,7 @@ public class UserController {
      */
     @GetMapping("/users/all")
     public List<User> getUsers() {
-        return userRepository.findAll();
+        return userRepository.findAllByOrderByIdAsc();
     }
 
     /**
