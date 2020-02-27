@@ -20,7 +20,7 @@ MonoBehaviour:
     maxSimultaneousImageTargets: 12
     maxSimultaneousObjectTargets: 0
     useDelayedLoadingObjectTargets: 0
-    modelTargetRecoWhileExtendedTracked: 1
+    modelTargetRecoWhileExtendedTracked: 0
     version: 8.6.10
     eulaAcceptedVersions: '{"Values":["8.3","8.5","8.6","8.1"]}'
     modelTargetMode: 0
@@ -40,6 +40,6 @@ MonoBehaviour:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: Microsoft Camera Front
+    deviceNameSetInEditor: Logitech Webcam C930e
     turnOffWebCam: 0
     renderTextureLayer: 30
