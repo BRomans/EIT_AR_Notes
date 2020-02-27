@@ -100,7 +100,11 @@ public class TaskController {
                                   @Valid @RequestBody Task taskRequest) {
         return taskRepository.findById(taskId)
                 .map(task -> {
-                    task.setUserId(taskRequest.getUserId());
+                    if(taskRequest.getUserId() == 0) {
+                        task.setUserId(null);
+                    }else {
+                        task.setUserId(taskRequest.getUserId());
+                    }
                     task.setDescription(taskRequest.getDescription());
                     task.setTitle(taskRequest.getTitle());
                     task.setStatus(taskRequest.getStatus());
