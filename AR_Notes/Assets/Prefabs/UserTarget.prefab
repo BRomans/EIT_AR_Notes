@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 1173724492622858641}
   - component: {fileID: 3923670451810400158}
   - component: {fileID: 1769253916837515025}
+  - component: {fileID: 2808809159333551470}
+  - component: {fileID: 8964075400748159165}
+  - component: {fileID: 6055326958949044977}
   m_Layer: 0
   m_Name: UserTarget
   m_TagString: Untagged
@@ -30,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 245142548051467944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.44, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 8076128765741091910}
   m_Father: {fileID: 0}
@@ -54,8 +57,8 @@ MonoBehaviour:
   mDataSetPath: Vuforia/ARNotesTarget_Rusna.xml
   mAspectRatio: 1.5
   mImageTargetType: 0
-  mWidth: 0.13333334
-  mHeight: 0.2
+  mWidth: 4
+  mHeight: 6
   mRuntimeTexture: {fileID: 0}
 --- !u!114 &4952977933380174888
 MonoBehaviour:
@@ -134,6 +137,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245142548051467944}
   m_Mesh: {fileID: 0}
+--- !u!54 &2808809159333551470
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245142548051467944}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8964075400748159165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245142548051467944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c9a25e8ca70405bb6266fef84a4a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  task:
+    id: 0
+    userId: 0
+    projectId: 0
+    title: 
+    description: 
+    status: 
+    startDate: 
+    endDate: 
+    createdAt: 
+    updatedAt: 
+    marker: 
+    empty: 0
+  user:
+    id: 0
+    firstName: 
+    lastName: 
+    username: 
+    email: 
+    password: 
+    createdAt: 
+    updatedAt: 
+--- !u!114 &6055326958949044977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245142548051467944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ccc8e241af040e6b7f1a764937a01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user:
+    id: 0
+    firstName: 
+    lastName: 
+    username: 
+    email: 
+    password: 
+    createdAt: 
+    updatedAt: 
+  id: 0
 --- !u!1 &1523023657693392591
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 1523023657693392591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 0, z: 10}
+  m_LocalScale: {x: 0.2, y: 0, z: 0.2}
   m_Children: []
   m_Father: {fileID: 389025057123448170}
   m_RootOrder: 0

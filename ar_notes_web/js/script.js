@@ -33,7 +33,7 @@ $( function() {
 
                 let marker = document.createElement('img');
                 marker.className = "card-img";
-                marker.setAttribute('src', 'images/'+task.marker);
+                marker.setAttribute('src', 'images/'+task.marker + ".jpg");
 
                 let descriptionSpace = document.createElement('div');
                 descriptionSpace.className = "col-md-8";
@@ -53,7 +53,7 @@ $( function() {
                 cardTimeSpace.className = "card-text";
 
                 let now = Date.now();
-                let updatedAt = new Date(task.updatedAt);
+                let updatedAt = new Date(rectifyFormat(task.updatedAt));
                 var elapsed = now - updatedAt; // time in milliseconds
                 var elapsedSeconds = Math.floor(elapsed / 1000);
                 var elapsedMins = Math.floor(elapsed / 60000);
@@ -116,6 +116,13 @@ $( function() {
     }
 );
 
+function rectifyFormat(s) {
+    let b = s.split(/\D/);
+    return b[0] + '-' + b[1] + '-' + b[2] + 'T' +
+           b[3] + ':' + b[4] + ':' + b[5] + '.' +
+           b[6].substr(0,3) + '+00:00';
+}
+  
 function updateTask(droppedItemID, dropZoneID, serverAddress) {
     const url = 'http://'+ serverAddress + ':8080/tasks/' + droppedItemID;
     var taskData = "";

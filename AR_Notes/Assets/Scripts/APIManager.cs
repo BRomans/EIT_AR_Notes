@@ -25,6 +25,7 @@ public class APIManager : MonoBehaviour
     public Task[] currentTasks;
     public User[]  currentUsers;
     public GameObject[] taskObjects; 
+    public GameObject[] userObjects; 
     public GameObject taskPrefab;
     private float refreshRate = 5.0f;
     Thread thread;
@@ -50,9 +51,11 @@ public class APIManager : MonoBehaviour
     /// Refresh the state of the system by fetching Users, Tasks and regenerating the objects
     /// </summary>
     private void UpdateAndRegenerateTasks() {
-        thread = new Thread(UpdateCurrentState);
-        thread.Start();  
+        //thread = new Thread(UpdateCurrentState);
+        //thread.Start();  
+        UpdateCurrentState();
         RegenerateTasks();
+        RegenerateUsers();
     }
 
     /// <summary>
@@ -64,6 +67,14 @@ public class APIManager : MonoBehaviour
         {
             GameObject task = taskObjects[i];
             task.GetComponent<TaskFieldsManager>().SetFields(currentTasks[i], currentTasks[i].title, currentTasks[i].description, returnUserName(currentTasks[i].userId));
+        }
+    }
+
+    public void RegenerateUsers() {
+        for(int i=0; i< currentUsers.Length; i++)
+        {
+            GameObject user = userObjects[i];
+            user.GetComponent<UserFieldsManager>().SetFields(currentUsers[i], currentUsers[i].id);
         }
     }
 
