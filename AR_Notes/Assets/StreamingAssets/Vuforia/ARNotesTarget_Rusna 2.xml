@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="user_green" size="4.000000 6.000000" />
-    <ImageTarget name="user_red" size="4.000000 6.000000" />
-    <ImageTarget name="user_blue" size="4.000000 6.000000" />
     <ImageTarget name="Marker_ToDo" size="4.000000 1.213307" />
     <ImageTarget name="Marker_InProgress" size="4.000000 1.222656" />
     <ImageTarget name="Marker_Completed" size="4.000000 1.158513" />

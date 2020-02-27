@@ -6,6 +6,7 @@ TagManager:
   tags:
   - APIManager
   - Task
+  - User
   layers:
   - Default
   - TransparentFX
