@@ -5,6 +5,7 @@ using UnityEngine;
 public class AssignUser : MonoBehaviour
 {
     public Task task;
+    public User user;
     private APIManager apiManager; 
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class AssignUser : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {  
-        other.GetComponent<TaskFieldsManager>().ClaimTask(1);
+        var userid = this.GetComponent<UserFieldsManager>().id;
+        other.GetComponent<TaskFieldsManager>().ClaimTask(userid);
     }
 }
