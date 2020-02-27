@@ -14,6 +14,7 @@ public class TaskFieldsManager : MonoBehaviour
     public TextMeshPro description;
     public TextMeshPro user;
     public TMP_InputField descriptionInput;
+    public TMP_InputField titleInput;
     public Task task;
     public string status;
     private APIManager apiManager; 
@@ -30,13 +31,35 @@ public class TaskFieldsManager : MonoBehaviour
     void Update()
     {
         
+
     }
 
     /// <summary>
-    /// Setup the input text box
+    /// Setup the description input text box
     /// </summary>
-    public void SetInputField() {
+    public void SetDescriptionInputField() {
         this.descriptionInput.text = this.task.description;
+    }
+
+    /// <summary>
+    /// Setup the title input text box
+    /// </summary>
+    public void SetTitleInputField() {
+        this.titleInput.text = this.task.title;
+    }
+
+    /// <summary>
+    /// Setup the description text box
+    /// </summary>
+    public void SetDescriptionField() {
+        this.description.SetText(this.task.description);
+    }
+
+    /// <summary>
+    /// Setup the title text box
+    /// </summary>
+    public void SetTitleField() {
+        this.title.SetText(this.titleInput.text);
     }
 
     /// <summary>
@@ -57,20 +80,65 @@ public class TaskFieldsManager : MonoBehaviour
     /// Updates the description of a task then calls the APIManager to update the server
     /// </summary>
     public void UpdateTaskDescription() {
-        this.task.description = this.descriptionInput.text;
-        if(this.task.userId != 0) {
-            StartCoroutine(apiManager.UpdateTaskForUser(this.task, this.task.userId));
-        } else {
-            StartCoroutine(apiManager.UpdateTask(this.task));
+        bool modified = false;
+        Debug.Log("text:" + this.descriptionInput.text);
+        if(this.descriptionInput.text != null || this.descriptionInput.text != "") {
+            this.task.description = this.descriptionInput.text;
+            modified = true;
         }
+        if(this.titleInput.text != null || this.titleInput.text != "") {
+            this.task.title = this.titleInput.text;
+            modified = true;
+        }
+        if(modified) {
+            this.task.empty = false;
+            if(this.task.userId != 0) {
+                StartCoroutine(apiManager.UpdateTaskForUser(this.task, this.task.userId));
+            } else {
+                StartCoroutine(apiManager.UpdateTask(this.task));
+            }
+        }
+
     }
 
     /// <summary>
     /// Ulear the fields of a task then calls the APIManager to update the server
     /// </summary>
     public void ClearTaskContent() {        
+        this.title.SetText("");
+        this.description.SetText("");
+        this.user.SetText("");
+        this.status = "";
+        this.task.description = "";
+        this.task.title = "";
+        this.task.userId = 0;
+        this.task.status ="todo";
         StartCoroutine(apiManager.ClearTask(this.task));
     }
+
+    /// <summary>
+    /// Ulear the fields of a task then calls the APIManager to update the server
+    /// </summary>
+    public void CopyTaskContent(Task task) {   
+
+        if(this.task.empty) {
+            this.task.description = task.description;
+            this.task.title = task.title;
+            this.task.userId = task.userId;
+            this.task.projectId = task.projectId;
+            this.task.status = task.status;
+            this.task.empty = false;
+            if(this.task.userId != 0) {
+            StartCoroutine(apiManager.UpdateTaskForUser(this.task, this.task.userId));
+            } else {
+                StartCoroutine(apiManager.UpdateTask(this.task));
+            }
+            Debug.Log("Copied!");
+        } else {
+            Debug.Log("Task not empty!");
+        }
+    }
+
 
     /// <summary>
     /// Updates the status of a task then calls the APIManager to update the server

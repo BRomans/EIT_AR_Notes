@@ -15,6 +15,7 @@ public class CopyTaskContent : MonoBehaviour
         
         if (other.gameObject.tag == "Task")
         {
+            other.GetComponent<TaskFieldsManager>().CopyTaskContent(this.GetComponent<TaskFieldsManager>().task);
             Debug.Log("It's a task");
         }
     }
